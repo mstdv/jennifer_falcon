@@ -1,0 +1,1 @@
+C:\xampp\htdocs\Dropbox\PCI\app/views/proveedores/show.blade.php
