@@ -11,6 +11,7 @@
     <link href="{{URL::to('/')}}/css/app.css" rel="stylesheet">
     <link href="{{URL::to('/')}}/css/ui.css" rel="stylesheet">
 
+
   </head>
   <body>
 	<div class="container">

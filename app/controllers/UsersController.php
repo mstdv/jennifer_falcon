@@ -173,4 +173,29 @@ class UsersController extends \BaseController {
 		return Redirect::back();
 	}
 
+	public function deleteAll()
+	{
+		$u = User::all();
+
+		$fecha = "";
+
+		foreach ($u as $key) {
+
+			$fecha = explode(" ", $key->updated_at);
+
+			$f1 = DateTime::createFromFormat('Y-m-d', $fecha[0]);
+			$f2 = DateTime::createFromFormat('Y-m-d', date("Y-m-d"));
+			$fecha = $f1->diff($f2)->format('%a')." ";
+
+			if($fecha > 365){
+
+				User::find($key->id)->delete();
+			}
+
+		}
+
+		return Redirect::to("users");
+
+	}
+
 }
