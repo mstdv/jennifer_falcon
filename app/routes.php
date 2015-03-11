@@ -38,8 +38,4 @@
 		Route::post('/reporte', 'PedidosController@reportepost');
 
 	});
-
-
-
-
 ?>
