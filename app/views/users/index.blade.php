@@ -27,6 +27,8 @@
 					<td><small>
 						@if($user->rol==0)
 							Administrador General
+						@elseif($user->rol==1)
+							Usuario
 						@endif
 					</small></td>
 

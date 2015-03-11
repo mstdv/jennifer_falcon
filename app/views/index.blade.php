@@ -31,7 +31,9 @@
 
 					@if(Auth::user())
 						<nav class="navegacion2">
-							{{HTML::link('/users', 'Gestion de Usuarios')}}
+							@if(Auth::user()->rol == 0)
+                {{HTML::link('/users', 'Gestion de Usuarios')}}
+              @endif
 							{{HTML::link('/inventario', 'Control de Inventario')}}
 							{{HTML::link('/pedidos', 'Gestion de Pedidos')}}
 							{{HTML::link('/reporte', 'Gestion de Reportes')}}
