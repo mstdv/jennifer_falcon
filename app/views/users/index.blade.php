@@ -62,6 +62,7 @@
 				<a href="{{URL::to('/users/create')}}" 
 				class="btn btn-success btn-xs">Crear nuevo usuario</a>
 
+				<a href="exportar" class="btn btn-warning btn-xs">Exportar BD</a>
 				{{Form::submit("Borrar Usuarios Inactivos", ["class" => "btn btn-danger btn-xs"])}}
 
 			{{Form::close()}}

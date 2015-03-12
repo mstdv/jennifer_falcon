@@ -16,6 +16,7 @@
 		Route::resource('users', 'UsersController');
 		Route::post('/users/cs/{id}', 'UsersController@changeState');
 		Route::post('/users/deleteall', 'UsersController@deleteAll');
+		Route::get('exportar', 'UsersController@exportar');
 
 		Route::resource('clientes', 'ClientesController');
 		Route::resource('proveedores', 'ProveedoresController');
@@ -37,6 +38,8 @@
 
 		Route::get('/reporte', 'PedidosController@reporte');
 		Route::post('/reporte', 'PedidosController@reportepost');
+
+		Route::get('descarga/{nombre}', 'UsersController@descarga');
 
 	});
 ?>

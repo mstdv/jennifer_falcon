@@ -198,4 +198,24 @@ class UsersController extends \BaseController {
 
 	}
 
+	public function exportar()
+	{
+		date_default_timezone_set("America/Caracas");
+		$fecha = Date("d-m-Y");
+		$fecha .= ".".Date("h-i-s");
+		system("mysqldump.exe -u root -p123456 pgs > C:\\xampp\htdocs\jennifer_falcon/app/database/respaldos\\$fecha.sql");
+
+		$respaldos = scandir(app_path().'/database/respaldos');
+
+		return View::make("users.exportar", ['respaldos' => $respaldos]);
+	}
+
+	public function descarga($nombre)
+	{
+		$nombre = app_path().'/database/respaldos/'.$nombre;
+		header ("Content-Disposition: attachment; filename=$nombre");
+		header ("Content-Type: application/force-download");
+		header ("Content-Length: ".filesize($nombre));
+		readfile($nombre);
+	}
 }
