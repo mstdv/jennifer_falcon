@@ -182,15 +182,14 @@ class UsersController extends \BaseController {
 		foreach ($u as $key) {
 
 			$fecha = explode(" ", $key->updated_at);
+				$f1 = DateTime::createFromFormat('Y-m-d', $fecha[0]);
+				$f2 = DateTime::createFromFormat('Y-m-d', date("Y-m-d"));
+				$fecha = $f1->diff($f2)->format('%a')." ";
 
-			$f1 = DateTime::createFromFormat('Y-m-d', $fecha[0]);
-			$f2 = DateTime::createFromFormat('Y-m-d', date("Y-m-d"));
-			$fecha = $f1->diff($f2)->format('%a')." ";
+				if($fecha > 365){
 
-			if($fecha > 365){
-
-				User::find($key->id)->delete();
-			}
+					User::find($key->id)->delete();
+				}
 
 		}
 
@@ -203,7 +202,7 @@ class UsersController extends \BaseController {
 		date_default_timezone_set("America/Caracas");
 		$fecha = Date("d-m-Y");
 		$fecha .= ".".Date("h-i-s");
-		system("mysqldump.exe -u root -p123456 pgs > C:\\xampp\htdocs\jennifer_falcon/app/database/respaldos\\$fecha.sql");
+		system("mysqldump.exe -u root -p123456 pgs > C:\\xampp/htdocs/trabajo/Dropbox/jennifer_falcon/app/database/respaldos/Backup_".$fecha.".sql");
 
 		$respaldos = scandir(app_path().'/database/respaldos');
 
