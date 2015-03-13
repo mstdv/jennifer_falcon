@@ -39,6 +39,8 @@
 		Route::get('/reporte', 'PedidosController@reporte');
 		Route::post('/reporte', 'PedidosController@reportepost');
 
+
+		//Esto es un comentario
 		Route::get('descarga/{nombre}', 'UsersController@descarga');
 
 	});
