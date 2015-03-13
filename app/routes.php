@@ -40,7 +40,7 @@
 		Route::post('/reporte', 'PedidosController@reportepost');
 
 
-		//Esto es un comentario
+		//Hago un commit
 		Route::get('descarga/{nombre}', 'UsersController@descarga');
 
 	});
